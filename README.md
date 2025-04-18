@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# granen32 프로젝트
 
-## Getting Started
+Next.js와 TypeScript를 활용한 granen32 웹 애플리케이션입니다.
 
-First, run the development server:
+## 기술 스택
+
+- **프론트엔드**: Next.js, TypeScript, Tailwind CSS
+- **개발 도구**: ESLint, Prettier
+- **배포**: Docker, Jenkins(예정)
+
+## 특징
+
+- granen32 테마 컬러를 적용한 UI 디자인
+- 재사용 가능한 UI 컴포넌트 (버튼, 인풋, 텍스트에어리어 등)
+- 모던 웹 개발 환경 설정 (TypeScript, ESLint, Prettier)
+- Docker를 통한 배포 환경 구성
+
+## 시작하기
+
+### 개발 환경 설정
 
 ```bash
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Docker로 실행하기
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Docker 이미지 빌드
+docker-compose build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Docker 컨테이너 실행
+docker-compose up -d
+```
 
-## Learn More
+## 프로젝트 구조
 
-To learn more about Next.js, take a look at the following resources:
+```
+samsung-lions-user/
+├── src/
+│   ├── app/            # 앱 라우터
+│   ├── components/     # 컴포넌트
+│   │   ├── ui/         # UI 컴포넌트
+│   ├── lib/            # 유틸리티 함수
+│   ├── styles/         # 스타일 관련 파일
+├── public/             # 정적 파일
+├── Dockerfile          # Docker 설정
+├── docker-compose.yml  # Docker Compose 설정
+├── .eslintrc.json      # ESLint 설정
+├── .prettierrc         # Prettier 설정
+├── tailwind.config.ts  # Tailwind CSS 설정
+├── tsconfig.json       # TypeScript 설정
+└── package.json        # 프로젝트 의존성
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 라이센스
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+이 프로젝트는 MIT 라이센스 하에 배포됩니다.
