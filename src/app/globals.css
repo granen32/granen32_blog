@@ -17,16 +17,41 @@
 
   --background: #f8fafc;
   --background-dark: #0f172a;
-}
 
-@layer base {
-  body {
-    @apply bg-background text-neutral-900;
-  }
-}
-
-@layer components {
-  .tab-panel {
-    @apply py-4;
-  }
+  --font-default: #091e42;
+  --white: #fff;
+  --blue: #1473e6;
+  --purple: #8777d9;
+  --gray: #808080;
+  --gray-light: #dfe1e6;
+  --gray-dark: #545454;
+  --gray-darkx: #2c2c2c;
+  --green: #107154;
+  --control-border-color: #acacac;
+  --control-readonly-color: #ebecf0;
+  --control-readonly-color2: #d7d7d7;
+  --highlight-color: #243974;
+  --primary-color: #243974;
+  --primary-color-hover: #304686;
+  --primary-color2: #2e4c9f;
+  --secondary-color: #3577f1;
+  --secondary-color-hover: #2d65cd;
+  --success-color: #0ab39c;
+  --success-color-hover: #099885;
+  --info-color: #299cdb;
+  --info-color-hover: #2385ba;
+  --warning-color: #f7b84b;
+  --warning-color-hover: #d29c40;
+  --danger-color: #ff0000;
+  --danger-color-hover: #e70202;
+  --dark-color: #212529;
+  --dark-color-hover: #494f56;
+  --light-color: #f3f6f9;
+  --light-color-hover: #e2e5e8;
+  --light2-color: #fafafa;
+  --light2-color-hover: #f3f3f3;
+  --border-radius: 4px;
+  --border-radius2: 8px;
+  --table-border-color: #cdd1d9;
+  --edu-row: 1;
 }

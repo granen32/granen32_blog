@@ -94,7 +94,7 @@ export const useUpdatePost = (
   options?: UseMutationOptions<Post, Error, { id: number; data: Partial<Post> }>
 ) => {
   return useMutation({
-    mutationKey: QUERY_KEYS.POST.UPDATE,
+    mutationKey: [QUERY_KEYS.POST.UPDATE],
     mutationFn: ({ id, data }) =>
       customFetch<Partial<Post>, Post>(`/posts/${id}`, {
         method: "PATCH",
@@ -107,7 +107,7 @@ export const useUpdatePost = (
 // 게시글 삭제 훅
 export const useDeletePost = (options?: UseMutationOptions<void, Error, number>) => {
   return useMutation({
-    mutationKey: QUERY_KEYS.POST.DELETE,
+    mutationKey: [QUERY_KEYS.POST.DELETE],
     mutationFn: (id) =>
       customFetch<never, void>(`/posts/${id}`, {
         method: "DELETE",
@@ -121,7 +121,7 @@ export const useUpdateComment = (
   options?: UseMutationOptions<Comment, Error, { id: number; content: string }>
 ) => {
   return useMutation({
-    mutationKey: QUERY_KEYS.COMMENT.UPDATE,
+    mutationKey: [QUERY_KEYS.COMMENT.UPDATE],
     mutationFn: ({ id, content }) =>
       customFetch<{ content: string }, Comment>(`/comments/${id}`, {
         method: "PATCH",
@@ -134,7 +134,7 @@ export const useUpdateComment = (
 // 댓글 삭제 훅
 export const useDeleteComment = (options?: UseMutationOptions<void, Error, number>) => {
   return useMutation({
-    mutationKey: QUERY_KEYS.COMMENT.DELETE,
+    mutationKey: [QUERY_KEYS.COMMENT.DELETE],
     mutationFn: (id) =>
       customFetch<never, void>(`/comments/${id}`, {
         method: "DELETE",

@@ -1,6 +1,6 @@
-# granen32 프로젝트
+# samsung-lions-user 프로젝트
 
-Next.js와 TypeScript를 활용한 granen32 웹 애플리케이션입니다.
+Next.js와 TypeScript를 활용한 samsung-lions-user 웹 애플리케이션입니다.
 
 ## 기술 스택
 
@@ -10,7 +10,7 @@ Next.js와 TypeScript를 활용한 granen32 웹 애플리케이션입니다.
 
 ## 특징
 
-- granen32 테마 컬러를 적용한 UI 디자인
+- samsung-lions-user 테마 컬러를 적용한 UI 디자인
 - 재사용 가능한 UI 컴포넌트 (버튼, 인풋, 텍스트에어리어 등)
 - 모던 웹 개발 환경 설정 (TypeScript, ESLint, Prettier)
 - Docker를 통한 배포 환경 구성

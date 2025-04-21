@@ -6,6 +6,8 @@ import { TextArea } from "@/components/ui/TextArea";
 import { Modal, TabPanel, Tabs } from "@/components/common";
 import { useModal, TabItem } from "@/lib/contexts";
 import { useState } from "react";
+import Link from "next/link";
+import { CustomImage } from "@/components/ui/CustomImage";
 
 export default function Home() {
   const [name, setName] = useState("");
@@ -78,145 +80,106 @@ export default function Home() {
   ];
 
   return (
-    <main className="flex min-h-screen flex-col items-center bg-background p-8">
-      <div className="mx-auto w-full max-w-3xl space-y-10">
-        <header className="space-y-4 text-center">
-          <h1 className="text-primary text-4xl font-bold">granen32</h1>
-          <p className="text-neutral-500">Next.js와 TypeScript를 사용한 granen32 프로젝트</p>
-        </header>
-
-        <section className="space-y-6 rounded-lg bg-white p-6 shadow-md">
-          <h2 className="border-b pb-3 text-2xl font-semibold text-neutral-800">커스텀 컴포넌트</h2>
-
-          <div className="space-y-4">
-            <h3 className="text-xl font-medium text-neutral-700">모달 컴포넌트</h3>
-            <div className="flex flex-wrap gap-4">
-              <Button onClick={openModal}>기본 모달 열기</Button>
-              <Button variant="secondary" onClick={handleOpenContextModal}>
-                컨텍스트 모달 열기
-              </Button>
-            </div>
-
-            <Modal isOpen={isModalOpen} onClose={closeModal} title="기본 모달 예제">
-              <p className="text-neutral-700">기본 모달 컴포넌트 예제입니다!</p>
-              <div className="mt-4 flex justify-end">
-                <Button onClick={closeModal}>닫기</Button>
-              </div>
-            </Modal>
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative h-[600px]">
+        <CustomImage
+          src="/images/hero.jpg"
+          alt="Samsung Lions Stadium"
+          fill
+          className="object-cover"
+          priority
+          quality={100}
+        />
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="text-center text-white">
+            <h1 className="mb-4 text-5xl font-bold">Welcome to Samsung Lions</h1>
+            <p className="mb-8 text-xl">Experience the excitement of KBO baseball</p>
+            <Link
+              href="/tickets"
+              className="rounded-lg bg-blue-600 px-8 py-3 text-lg font-semibold text-white hover:bg-blue-700"
+            >
+              Get Tickets
+            </Link>
           </div>
+        </div>
+      </section>
 
-          <div className="space-y-4">
-            <h3 className="text-xl font-medium text-neutral-700">탭 컴포넌트</h3>
-            <Tabs tabs={tabItems} />
-          </div>
-        </section>
-
-        <section className="space-y-6 rounded-lg bg-white p-6 shadow-md">
-          <h2 className="border-b pb-3 text-2xl font-semibold text-neutral-800">
-            UI 컴포넌트 모음
-          </h2>
-
-          <div className="space-y-4">
-            <h3 className="text-xl font-medium text-neutral-700">버튼 컴포넌트</h3>
-            <div className="flex flex-wrap gap-4">
-              <Button>기본 버튼</Button>
-              <Button variant="secondary">보조 버튼</Button>
-              <Button variant="outline">아웃라인 버튼</Button>
-              <Button variant="ghost">고스트 버튼</Button>
-              <Button variant="link">링크 버튼</Button>
-              <Button variant="accent">액센트 버튼</Button>
-            </div>
-            <div className="flex flex-wrap gap-4">
-              <Button size="sm">작은 버튼</Button>
-              <Button>중간 버튼</Button>
-              <Button size="lg">큰 버튼</Button>
-            </div>
-            <div className="pt-2">
-              <Button isLoading>로딩 버튼</Button>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="text-xl font-medium text-neutral-700">인풋 컴포넌트</h3>
-            <div className="space-y-4">
-              <Input
-                placeholder="기본 인풋"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-              <Input placeholder="작은 인풋" size="sm" />
-              <Input placeholder="중간 인풋" size="md" />
-              <Input placeholder="큰 인풋" size="lg" />
-              <Input placeholder="에러 상태 인풋" error="이 필드는 필수입니다" />
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="text-xl font-medium text-neutral-700">텍스트에어리어 컴포넌트</h3>
-            <div className="space-y-4">
-              <TextArea
-                placeholder="기본 텍스트에어리어"
-                rows={4}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              />
-              <TextArea
-                placeholder="에러 상태 텍스트에어리어"
-                rows={4}
-                error="이 필드는 필수입니다"
-              />
-            </div>
-          </div>
-        </section>
-
-        <section className="space-y-6 rounded-lg bg-white p-6 shadow-md">
-          <h2 className="border-b pb-3 text-2xl font-semibold text-neutral-800">색상 팔레트</h2>
-
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            <div className="space-y-2">
-              <div className="bg-primary flex h-20 items-end rounded-md p-2">
-                <span className="text-sm font-medium text-white">Primary</span>
-              </div>
-              <div className="flex gap-2">
-                <div className="h-10 w-full rounded-md bg-primary-light"></div>
-                <div className="h-10 w-full rounded-md bg-primary-dark"></div>
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <div className="flex h-20 items-end rounded-md bg-secondary p-2">
-                <span className="text-sm font-medium text-white">Secondary</span>
-              </div>
-              <div className="flex gap-2">
-                <div className="h-10 w-full rounded-md bg-secondary-light"></div>
-                <div className="h-10 w-full rounded-md bg-secondary-dark"></div>
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <div className="flex h-20 items-end rounded-md bg-accent p-2">
-                <span className="text-sm font-medium text-neutral-800">Accent</span>
-              </div>
-              <div className="flex gap-2">
-                <div className="h-10 w-full rounded-md bg-accent-light"></div>
-                <div className="h-10 w-full rounded-md bg-accent-dark"></div>
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <div className="flex h-20 items-end rounded-md bg-background p-2">
-                <span className="text-sm font-medium text-neutral-800">Background</span>
-              </div>
-              <div className="flex gap-2">
-                <div className="h-10 w-full rounded-md bg-background"></div>
-                <div className="flex h-10 w-full items-center justify-center rounded-md bg-background-dark">
-                  <span className="text-xs text-white">Dark</span>
+      {/* Featured News */}
+      <section className="bg-gray-50 py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="mb-8 text-3xl font-bold">Latest News</h2>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {[1, 2, 3].map((item) => (
+              <div key={item} className="overflow-hidden rounded-lg bg-white shadow-md">
+                <CustomImage
+                  src={`/images/news-${item}.jpg`}
+                  alt={`News ${item}`}
+                  width={400}
+                  height={250}
+                  className="h-48 w-full object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="mb-2 text-xl font-semibold">Latest Team Updates</h3>
+                  <p className="mb-4 text-gray-600">
+                    Stay updated with the latest news and developments from the Samsung Lions team.
+                  </p>
+                  <Link
+                    href={`/news/${item}`}
+                    className="font-semibold text-blue-600 hover:text-blue-800"
+                  >
+                    Read More →
+                  </Link>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Upcoming Games */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="mb-8 text-3xl font-bold">Upcoming Games</h2>
+          <div className="rounded-lg bg-white p-6 shadow-md">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {[1, 2].map((game) => (
+                <div
+                  key={game}
+                  className="rounded-lg border border-gray-200 p-4 transition-shadow hover:shadow-lg"
+                >
+                  <div className="mb-4 flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <CustomImage
+                        src="/images/logo.png"
+                        alt="Samsung Lions Logo"
+                        width={40}
+                        height={40}
+                      />
+                      <span className="font-semibold">Samsung Lions</span>
+                    </div>
+                    <span className="text-gray-500">VS</span>
+                    <div className="flex items-center space-x-4">
+                      <CustomImage
+                        src="/images/opponent-logo.png"
+                        alt="Opponent Logo"
+                        width={40}
+                        height={40}
+                      />
+                      <span className="font-semibold">Opponent Team</span>
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-gray-600">May 15, 2024</p>
+                    <p className="text-gray-600">7:00 PM KST</p>
+                    <p className="text-gray-600">Daegu Samsung Lions Park</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        </section>
-      </div>
-    </main>
+        </div>
+      </section>
+    </div>
   );
 }
