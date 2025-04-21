@@ -27,11 +27,7 @@ export default function RootLayout({
   return (
     <html lang="ko" dir="ltr">
       <body className={inter.className}>
-        <div className="flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </div>
+        <main className="flex-grow">{children}</main>
       </body>
     </html>
   );
