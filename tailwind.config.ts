@@ -91,9 +91,26 @@ const config: Config = {
         "4.5": "18px",
         "5.5": "22px",
       },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
     },
   },
   plugins: [],
+  layer: {
+    base: {
+      ".heading-2": {
+        "@apply text-[32px] leading-[48px] mb-5 font-semibold text-[#172B4D] tracking-[-0.5px]": {},
+      },
+      ".heading-3": {
+        "@apply text-xl font-bold mb-1 leading-9 text-[#172B4D]": {},
+      },
+      ".heading-4": {
+        "@apply flex items-center text-base font-semibold text-[#172B4D] mb-2": {},
+      },
+    },
+  },
 };
 
 export default config;

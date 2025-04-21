@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import NextImage from "next/image";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/twMerge";
 import { Spinner } from "@/components/ui/Spinner";
 
 interface CustomImageProps extends React.ComponentProps<typeof NextImage> {

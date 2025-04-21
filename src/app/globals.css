@@ -55,3 +55,17 @@
   --table-border-color: #cdd1d9;
   --edu-row: 1;
 }
+
+@layer components {
+  .heading-2 {
+    @apply mb-5 text-[32px] font-semibold leading-[48px] tracking-[-0.5px] text-[#172B4D];
+  }
+
+  .heading-3 {
+    @apply mb-1 text-xl font-bold leading-9 text-[#172B4D];
+  }
+
+  .heading-4 {
+    @apply mb-2 flex items-center text-base font-semibold text-[#172B4D];
+  }
+}

@@ -1,5 +1,5 @@
 import { Spinner } from "@/components/ui/Spinner";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/twMerge";
 
 interface LoadingProps {
   className?: string;

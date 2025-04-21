@@ -1,18 +1,18 @@
-import React, { TextareaHTMLAttributes, forwardRef } from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
+import React, { TextareaHTMLAttributes, forwardRef } from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils/twMerge";
 
 const textareaVariants = cva(
-  'flex w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm ring-offset-white transition-colors placeholder:text-neutral-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+  "flex w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm ring-offset-white transition-colors placeholder:text-neutral-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: 'border-neutral-300',
-        error: 'border-red-500 focus-visible:ring-red-500',
+        default: "border-neutral-300",
+        error: "border-red-500 focus-visible:ring-red-500",
       },
     },
     defaultVariants: {
-      variant: 'default',
+      variant: "default",
     },
   }
 );
@@ -30,7 +30,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
         <textarea
           className={cn(
             textareaVariants({
-              variant: error ? 'error' : variant,
+              variant: error ? "error" : variant,
               className,
             })
           )}
@@ -43,6 +43,6 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   }
 );
 
-TextArea.displayName = 'TextArea';
+TextArea.displayName = "TextArea";
 
-export { TextArea }; 
+export { TextArea };
