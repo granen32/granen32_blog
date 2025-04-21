@@ -10,7 +10,7 @@ export type EventType = "entry" | "message" | "choice";
 
 export type CouponType = "amount" | "count" | "percentage";
 
-export type CouponIssuer = "samsungLions" | "ticketLink" | "teamStore";
+export type CouponIssuer = "granen32" | "ticketLink" | "teamStore";
 
 export type CouponCategory = "currency" | "giftCard" | "ticket";
 

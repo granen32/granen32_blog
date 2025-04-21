@@ -9,12 +9,12 @@ export function Header() {
           <Link href="/" className="flex items-center space-x-2">
             <CustomImage
               src="/images/logo.png"
-              alt="Samsung Lions Logo"
+              alt="granen32 Logo"
               width={40}
               height={40}
               priority
             />
-            <span className="text-xl font-bold">Samsung Lions</span>
+            <span className="text-xl font-bold">granen32</span>
           </Link>
 
           <nav className="hidden space-x-8 md:flex">
