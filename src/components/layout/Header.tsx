@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { CustomImage } from "@/components/ui/CustomImage";
+import { useSession, signOut } from "next-auth/react";
 
 export function Header() {
+  const { data: session } = useSession();
+
   return (
     <header className="bg-blue-900 text-white">
       <div className="container mx-auto px-4">
@@ -9,12 +14,12 @@ export function Header() {
           <Link href="/" className="flex items-center space-x-2">
             <CustomImage
               src="/images/logo.png"
-              alt="granen32 Logo"
+              alt="samsunglionsblue Logo"
               width={40}
               height={40}
               priority
             />
-            <span className="text-xl font-bold">granen32</span>
+            <span className="text-xl font-bold">samsunglionsblue</span>
           </Link>
 
           <nav className="hidden space-x-8 md:flex">
@@ -36,7 +41,18 @@ export function Header() {
           </nav>
 
           <div className="flex items-center space-x-4">
-            <button className="rounded bg-blue-700 px-4 py-2 hover:bg-blue-600">Sign In</button>
+            {session ? (
+              <button
+                onClick={() => signOut()}
+                className="rounded bg-blue-700 px-4 py-2 hover:bg-blue-600"
+              >
+                로그아웃
+              </button>
+            ) : (
+              <Link href="/" className="rounded bg-blue-700 px-4 py-2 hover:bg-blue-600">
+                로그인
+              </Link>
+            )}
           </div>
         </div>
       </div>

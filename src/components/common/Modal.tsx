@@ -1,12 +1,12 @@
-import React, { ReactNode, useEffect, useRef } from 'react';
-import { createPortal } from 'react-dom';
+import React, { ReactNode, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 
 export interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
   children: ReactNode;
-  size?: 'sm' | 'md' | 'lg' | 'full';
+  size?: "sm" | "md" | "lg" | "full";
   closeOnOverlayClick?: boolean;
   closeOnEsc?: boolean;
   className?: string;
@@ -17,19 +17,19 @@ export function Modal({
   onClose,
   title,
   children,
-  size = 'md',
+  size = "md",
   closeOnOverlayClick = true,
   closeOnEsc = true,
-  className = '',
+  className = "",
 }: ModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
 
   // Define size class
   const sizeClasses = {
-    sm: 'max-w-sm',
-    md: 'max-w-md',
-    lg: 'max-w-lg',
-    full: 'max-w-full w-[90%] h-[90%]',
+    sm: "max-w-sm",
+    md: "max-w-md",
+    lg: "max-w-lg",
+    full: "max-w-full w-[90%] h-[90%]",
   };
 
   // Handle clicking outside the modal
@@ -44,19 +44,19 @@ export function Modal({
     if (!isOpen) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (closeOnEsc && e.key === 'Escape') {
+      if (closeOnEsc && e.key === "Escape") {
         onClose();
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
 
     // Prevent background scrolling when modal is open
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
 
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'auto';
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "auto";
     };
   }, [isOpen, closeOnEsc, onClose]);
 
@@ -93,7 +93,7 @@ export function Modal({
             </button>
           </div>
         )}
-        <div className={`${title ? '' : 'pt-4'}`}>{children}</div>
+        <div className={`${title ? "" : "pt-4"}`}>{children}</div>
       </div>
     </div>,
     document.body

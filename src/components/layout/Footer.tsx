@@ -10,15 +10,16 @@ export function Footer() {
             <Link href="/" className="flex items-center space-x-2">
               <CustomImage
                 src="/images/logo.png"
-                alt="granen32 Logo"
+                alt="samsunglionsblue Logo"
                 width={30}
                 height={30}
                 priority
               />
-              <span className="text-lg font-bold">granen32</span>
+              <span className="text-lg font-bold">samsunglionsblue</span>
             </Link>
             <p className="text-gray-400">
-              The official website of the granen32, a professional baseball team in the KBO League.
+              The official website of the samsunglionsblue, a professional baseball team in the KBO
+              League.
             </p>
           </div>
 
@@ -78,7 +79,7 @@ export function Footer() {
             <h3 className="mb-4 text-lg font-semibold">Connect With Us</h3>
             <div className="flex space-x-4">
               <a
-                href="https://facebook.com/granen32"
+                href="https://facebook.com/samsunglionsblue"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white"
@@ -86,7 +87,7 @@ export function Footer() {
                 Facebook
               </a>
               <a
-                href="https://twitter.com/granen32"
+                href="https://twitter.com/samsunglionsblue"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white"
@@ -94,7 +95,7 @@ export function Footer() {
                 Twitter
               </a>
               <a
-                href="https://instagram.com/granen32"
+                href="https://instagram.com/samsunglionsblue"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white"
@@ -106,7 +107,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 border-t border-gray-800 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} granen32. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} samsunglionsblue. All rights reserved.</p>
         </div>
       </div>
     </footer>

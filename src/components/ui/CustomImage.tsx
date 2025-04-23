@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import NextImage from "next/image";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/twMerge";
 import { Spinner } from "@/components/ui/Spinner";
 
 interface CustomImageProps extends React.ComponentProps<typeof NextImage> {
@@ -29,7 +29,7 @@ export function CustomImage({
   placeholder = "empty",
   ...props
 }: CustomImageProps) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(!priority);
   const [error, setError] = useState(false);
   const [originMismatch, setOriginMismatch] = useState(false);
 
@@ -39,13 +39,14 @@ export function CustomImage({
       return;
     }
 
-    try {
-      const url = new URL(src.toString());
-      const currentOrigin = window.location.origin;
-      setOriginMismatch(url.origin !== currentOrigin);
-    } catch {
-      // Invalid URL, treat as error
-      setError(true);
+    if (typeof src === "string") {
+      try {
+        const url = new URL(src);
+        const currentOrigin = window.location.origin;
+        setOriginMismatch(url.origin !== currentOrigin);
+      } catch {
+        // Local image path
+      }
     }
   }, [src]);
 
@@ -56,9 +57,10 @@ export function CustomImage({
     return (
       <div
         className={cn(
-          "flex items-center justify-center bg-gray-100",
           "relative overflow-hidden",
-          className
+          "flex items-center justify-center",
+          "bg-gray-100",
+          className,
         )}
         style={{ width: props.width, height: props.height }}
       >
@@ -98,15 +100,20 @@ export function CustomImage({
         src={src}
         className={cn(
           "transition-opacity duration-300",
-          isLoading && "opacity-0",
-          `object-${objectFit}`
+          isLoading ? "opacity-0" : "opacity-100",
+          `object-${objectFit}`,
         )}
-        onLoadingComplete={() => setIsLoading(false)}
-        onError={() => setError(true)}
+        onLoad={() => {
+          setIsLoading(false);
+        }}
+        onError={(e) => {
+          setError(true);
+          setIsLoading(false);
+        }}
         priority={priority}
         quality={quality}
         sizes={sizes}
-        loading={priority ? "eager" : "lazy"}
+        loading="eager"
         placeholder={placeholder}
         blurDataURL={blurDataURL}
         {...props}
